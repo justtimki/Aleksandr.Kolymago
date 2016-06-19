@@ -20,14 +20,16 @@ for (var i = A; i < B; i++) {
   Task 2
  */
 var N = 5,
-    factorial = N;
+    factorial = N,
+    result = 1;
 do {
-    console.log(factorial);
+    result *= factorial;
     if (factorial === 1) {
         break;
     }
     factorial--;
 } while (true);
+console.log(result);
 
 /**
   Task 3
