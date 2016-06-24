@@ -46,3 +46,13 @@ var canFormTriangle = function (lineA, lineB, lineC) {
 };
 
 console.log(canFormTriangle(lineA, lineB, lineC));
+
+/**
+  Task 2
+  */
+var arr = [1, 2, 1, 4, 1, 3, 4, 1, 111, 3, 2, 1, "1"];
+
+arr.remove = function (element) {
+	return _.pull(arr, element);
+};
+console.log(arr.remove(1));
