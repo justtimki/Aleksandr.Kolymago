@@ -15,9 +15,13 @@ var charArrayOne = ['a', 'b', 'c'],
 	charArrayTwo = ['c', 'd', 'e'],
 	charArrayThree = ['a', 'b', 'c'];
 
-var isSame = _.isEqual(charArrayOne, charArrayTwo);
+var isSame = function (charArrayOne, charArrayTwo) {
+	charArrayOne = charArrayOne || [];
+	charArrayTwo = charArrayTwo || [];
+	return _.isEqual(charArrayOne, charArrayTwo);
+};
 
-console.log(isSame ? "Arrays are equal." : "Arrays are not equal.");
+console.log(isSame(charArrayOne, charArrayTwo) ? "Arrays are equal." : "Arrays are not equal.");
 
 /**
  * Task 3
@@ -25,6 +29,7 @@ console.log(isSame ? "Arrays are equal." : "Arrays are not equal.");
 var sourceArray = [2, 1, 1, 2, 3, 3, 2, 2, 2, 1];
 
 var getMaxSequenceOf = function (array, option) {
+	array = array || [];
 	var repeatCount = 0,
 		repeatStartPos,
 		repeatEndPos,
@@ -47,11 +52,11 @@ var getMaxSequenceOf = function (array, option) {
 	return resultArray;
 };
 
-console.log(getMaxSequenceOf(sourceArray, function (a, b) { return a === b; }));
+console.log("Maximal sequence of equal elements", getMaxSequenceOf(sourceArray, function (a, b) { return a === b; }));
 
 /**
  * Task 4
  * In this task I reuse my fuction from task 3.
  */
 var sourceArray = [3, 2, 3, 4, 2, 2, 4];
-console.log(getMaxSequenceOf(sourceArray, function (a, b) { return (b - a) === 1; }));
+console.log("Maximal increasing sequence", getMaxSequenceOf(sourceArray, function (a, b) { return (b - a) === 1; }));

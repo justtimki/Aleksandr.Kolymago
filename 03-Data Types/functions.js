@@ -73,7 +73,7 @@ var text = "Write a function that finds all the occurrences of word in a text " 
 	"The search can Case case sensitive or Case insensitive" +
 	"Use function overloading",
 	word = "case";
-console.log(searchWord(text, word, false));
+console.log("Word '", word, "' found", searchWord(text, word, true), "times");
 
 /**
  * Task 4
