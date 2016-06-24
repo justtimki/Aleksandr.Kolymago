@@ -71,3 +71,36 @@ var getCopy = function (original) {
 };
 
 console.log("Original", original, "copy", getCopy(original));
+
+/**
+ * Task 4
+ */
+var persons = [
+	{
+		firstName: "Gosho",
+		lastName: "Petrov",
+		age: 32
+	},
+	{
+		firstName: "Bay",
+		lastName: "Ivan",
+		age: 81
+	},
+	{
+		firstName: "Oleg",
+		lastName: "Olegov",
+		age: 12
+	},
+	{
+		firstName: "Ivan",
+		lastName: "Ivanov",
+		age: 35
+	}
+];
+
+var youngestPerson = (function (persons) {
+	return _.minBy(persons, function (p) { return p.age; });
+}(persons));
+
+
+console.log("The Youngest Person is ", youngestPerson);
