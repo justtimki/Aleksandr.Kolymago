@@ -56,3 +56,18 @@ arr.remove = function (element) {
 	return _.pull(arr, element);
 };
 console.log(arr.remove(1));
+
+/**
+  Task 3
+  */
+var original = {
+	'a': 5,
+	'b': {
+		'c': 'asd'
+	}
+};
+var getCopy = function (original) {
+	return _.cloneDeep(original);
+};
+
+console.log("Original", original, "copy", getCopy(original));
