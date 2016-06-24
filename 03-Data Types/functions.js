@@ -74,3 +74,14 @@ var text = "Write a function that finds all the occurrences of word in a text " 
 	"Use function overloading",
 	word = "case";
 console.log(searchWord(text, word, false));
+
+/**
+ * Task 4
+ */
+var getDivCount = (function (webpage) {
+	webpage = webpage || document;
+	return function () {
+		console.log("Divs on the page", webpage.getElementsByTagName('div').length);
+	};
+}(document)());
+
