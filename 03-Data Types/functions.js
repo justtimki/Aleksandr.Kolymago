@@ -5,6 +5,7 @@
  * Task 1
  */
 var getLastDigitOf = function (number) {
+	number = number || 0;
 	var numberLenght = (number).toString().length,
 		lastNumber = (number).toString()[numberLenght - 1];
 	switch (lastNumber) {
@@ -39,6 +40,7 @@ console.log("The last digit of", 1024, "integer is", getLastDigitOf(1024));
  * Task 2
  */
 var getReverseNum = function (number) {
+	number = number || 0;
 	return number
 		.toString()
 		.split('')
@@ -46,4 +48,29 @@ var getReverseNum = function (number) {
 		.join('');
 };
 
-console.log("Source number is", 123, "number after reverse", getReverseNum(123));
+console.log("Reverse number", getReverseNum());
+
+/**
+ * Task 3
+ */
+var searchWord = function (text, word, isCaseSensitive) {
+	var prefix = '',
+		result;
+
+	if (isCaseSensitive === undefined) {
+		isCaseSensitive = true;
+	}
+	text = text || '';
+	word = word || '';
+	prefix = isCaseSensitive ? 'g' : 'ig';
+
+	result = (text).match(new RegExp(word, prefix));
+
+	return result.length || 0;
+};
+
+var text = "Write a function that finds all the occurrences of word in a text " +
+	"The search can Case case sensitive or Case insensitive" +
+	"Use function overloading",
+	word = "case";
+console.log(searchWord(text, word, false));
