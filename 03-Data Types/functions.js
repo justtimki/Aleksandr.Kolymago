@@ -34,3 +34,16 @@ var getLastDigitOf = function (number) {
 };
 
 console.log("The last digit of", 1024, "integer is", getLastDigitOf(1024));
+
+/**
+ * Task 2
+ */
+var getReverseNum = function (number) {
+	return number
+		.toString()
+		.split('')
+		.reverse()
+		.join('');
+};
+
+console.log("Source number is", 123, "number after reverse", getReverseNum(123));
