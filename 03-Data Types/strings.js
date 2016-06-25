@@ -1,4 +1,4 @@
-/*jslint devel: true, plusplus: true, sloppy: true*/
+/*jslint devel: true, nomen: true, plusplus: true, sloppy: true*/
 /* =============== Strings =============== */
 
 /**
@@ -54,12 +54,76 @@ console.log("The word '", targer, "' found:", searchWord(text, targer), "times")
 /**
  * Task 4
  */
-var text = 'We are <mixcase>living</mixcase> in a <upcase>yellow submarine</upcase>.' +
+var text = 'We are <mixcase>living</mixcase> in a <upcase>yellow <lowcase>anything</lowcase> submarine</upcase>.' +
 	' We <mixcase>don\'t</mixcase> have <lowcase>anything</lowcase> else.';
-var beatifyText = function (text) {
+var test = '<upcase>yellow <lowcase>anything</lowcase> submarine</upcase>.';
 
+var stringToHtml = function (str) {
+	var template = document.createElement('template');
+	template.innerHTML = str;
+
+	return template.content.childNodes;
 };
-console.log(beatifyText(text));
+
+var convertWord = function (word, tagName) {
+	var mixcase = 'mixcase'.toUpperCase(),
+		lowcase = 'lowcase'.toUpperCase(),
+		upcase = 'upcase'.toUpperCase(),
+		letters = [],
+		i;
+
+	switch (tagName) {
+	case mixcase:
+		letters = word.split('');
+		for (i = 0; i < word.length; i++) {
+			if (_.random(0, 1) === 0) {
+				letters[i] = letters[i].toLowerCase();
+			} else {
+				letters[i] = letters[i].toUpperCase();
+			}
+		}
+		word = _.join(letters, '');
+		break;
+	case upcase:
+		word = word.toUpperCase();
+		break;
+	case lowcase:
+		word = word.toLowerCase();
+		break;
+	}
+
+	return word;
+};
+
+var beautifyText = function (html) {
+	var i,
+		j,
+		node,
+		innerNode,
+		result = "",
+		allElements = stringToHtml(html);
+
+	console.log(text);
+	for (i = 0; i < allElements.length; i++) {
+		node = allElements.item(i);
+		if (node.childNodes.length > 1) {
+			for (j = 0; j < node.childNodes.length; j++) {
+				innerNode = node.childNodes.item(j);
+				if (innerNode.nodeType === Node.TEXT_NODE) {
+					result += convertWord(innerNode.textContent, node.tagName);
+				} else {
+					result += convertWord(innerNode.textContent, innerNode.tagName);
+				}
+			}
+		} else {
+			result += convertWord(node.textContent, node.tagName) || '';
+		}
+	}
+	return result;
+};
+
+console.log(beautifyText(text));
+
 
 /**
  * Task 5
