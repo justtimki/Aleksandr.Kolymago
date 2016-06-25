@@ -49,3 +49,25 @@ var searchWord = function (text, target) {
 };
 
 console.log("The word '", targer, "' found:", searchWord(text, targer), "times");
+
+
+/**
+ * Task 4
+ */
+var text = 'We are <mixcase>living</mixcase> in a <upcase>yellow submarine</upcase>.' +
+	' We <mixcase>don\'t</mixcase> have <lowcase>anything</lowcase> else.';
+var beatifyText = function (text) {
+
+};
+console.log(beatifyText(text));
+
+/**
+ * Task 5
+ */
+var text = 'Write a function that replaces non breaking white-spaces in a text with `&nbsp;`';
+var modifyText = function (text) {
+	text = text || '';
+	return _.replace(text, /\s+/g, '&nbsp;');
+};
+
+console.log(modifyText(text));
