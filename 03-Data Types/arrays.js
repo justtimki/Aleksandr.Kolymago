@@ -59,4 +59,4 @@ console.log("Maximal sequence of equal elements", getMaxSequenceOf(sourceArray, 
  * In this task I reuse my fuction from task 3.
  */
 var sourceArray = [3, 2, 3, 4, 2, 2, 4];
-console.log("Maximal increasing sequence", getMaxSequenceOf(sourceArray, function (a, b) { return (b - a) === 1; }));
+console.log("Maximal increasing sequence", getMaxSequenceOf(sourceArray, function (a, b) { return a < b; }));

@@ -104,3 +104,45 @@ var youngestPerson = (function (persons) {
 
 
 console.log("The Youngest Person is ", youngestPerson);
+
+/**
+ * Task 5
+ */
+var persons = [
+	{
+		firstName: "Gosho",
+		lastName: "Petrov",
+		age: 32,
+		groupName: 'drivers'
+	},
+	{
+		firstName: "Cay",
+		lastName: "Ivan",
+		age: 81,
+		groupName: 'teachers'
+	},
+	{
+		firstName: "Oleg",
+		lastName: "Olegov",
+		age: 12,
+		groupName: 'students'
+	},
+	{
+		firstName: "Ivan",
+		lastName: "Ivanov",
+		age: 35,
+		groupName: 'drivers'
+	},
+	{
+		firstName: "Bay",
+		lastName: "Ivanov",
+		age: 35,
+		groupName: 'teachers'
+	}
+];
+var group = function (persons, attribute) {
+	return _.groupBy(_.orderBy(persons, [attribute], ['asc']), 'groupName');
+};
+
+console.log(JSON.stringify(group(persons, "firstName"), null, 2));
+console.log(JSON.stringify(group(persons, "age"), null, 2));
