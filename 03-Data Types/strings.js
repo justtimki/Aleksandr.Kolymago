@@ -81,3 +81,20 @@ var extractWords = (function (text) {
 }(text));
 
 console.log(extractWords);
+
+/**
+ * Task 7
+ */
+var urlToParse = 'http://www.tut.by/forum/index.php';
+var parseUrl = function (url) {
+	var parser = document.createElement('a');
+	parser.href = url;
+
+	return {
+		protocol:  parser.protocol,
+		server: parser.hostname,
+		resource: parser.pathname
+	};
+};
+
+console.log(JSON.stringify(parseUrl(urlToParse), null, 2));
