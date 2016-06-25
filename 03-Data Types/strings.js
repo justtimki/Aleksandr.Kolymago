@@ -71,3 +71,13 @@ var modifyText = function (text) {
 };
 
 console.log(modifyText(text));
+
+/**
+ * Task 6
+ */
+var text = '<html> <head> <title>Sample site</title> </head> <body> <div>text<div>more text</div>and more...</div>in body </body> </html>';
+var extractWords = (function (text) {
+	return text.replace(/<(?:.|\n)*?>/ig, '');
+}(text));
+
+console.log(extractWords);
